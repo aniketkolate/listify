@@ -1,0 +1,63 @@
+.welcome-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  height: fit-content;
+
+  .Welcome-msg-wrapper {
+    display: flex;
+    flex-direction: column;
+    color: #3F3D56;
+    font-family: Urbanist;
+    font-weight: 700;
+    font-style: Bold;
+    row-gap: 12px;
+
+    p {
+      color: #3F3D56;
+      font-family: Urbanist;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 28px;
+    }
+
+    p:last-child {
+      color: #8D9CB8;
+      font-family: Urbanist;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 18px;
+    }
+  }
+
+  span {
+    color: #007FFF;
+    font-family: Urbanist;
+    font-weight: 700px;
+    font-style: Bold;
+    font-size: 28px;
+  }
+
+  .search-wrapper {
+    margin-top: 10px;
+    border-radius: 12px;
+
+    input {
+      border-radius: 5px;
+      background-color: #F5F7F9;
+      border: none;
+      width: 260px;
+      height: 38px;
+
+      &::placeholder {
+        font-family: Urbanist;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 16px;
+        color: #C6CFDC;
+        padding-left: 15px;
+      }
+    }
+  }
+}

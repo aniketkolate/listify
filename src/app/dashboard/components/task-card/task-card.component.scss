@@ -1,0 +1,87 @@
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.add-task-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 24px;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    font-family: Urbanist;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 18px;
+    color: #8D9CB8;
+    border-radius: 2px;
+    border: none;
+    align-items: center;
+    column-gap: 20px;
+    background: none;
+  }
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.task-card-container {
+  width: 100%;
+  display: flex;
+  background: #F5F7F9;
+  border-radius: 20px;
+
+  .checkbox-wrapper {
+    padding: 24px 20px 0px 24px;
+    flex-direction: column;
+    column-gap: 57px;
+    accent-color: blue;
+
+    input {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .task-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 60px 24px 0px;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      font-family: Urbanist;
+      font-weight: 600;
+      font-style: SemiBold;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      color: #8D9CB8;
+      font-family: Urbanist;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="no-task-container">
+  <div class="no-task-inner-wrapper" [ngStyle]="isTaskCountZero ? {'align-items': 'center'} : {}">
+    <img src="assets/icons/no-data.png" alt="no-icon">
+    <p>{{isTaskCountZero ? 'You have no tasks listed.': 'No result found.'}}</p>
+    <button *ngIf="isTaskCountZero">
+      <img src="assets/icons/no-plus-icon.png" alt="">
+      <span> Create task</span>
+    </button>
+  </div>
+</div>

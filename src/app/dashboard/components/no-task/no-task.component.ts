@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './no-task.component.scss'
 })
 export class NoTaskComponent {
-  @Input() isTaskCountZero: boolean = true
+  @Input() isTaskCountZero: boolean = true;
 }

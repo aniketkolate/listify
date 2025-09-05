@@ -4,6 +4,9 @@
     <p>You've got {{usernameAndTaskCount.taskCount}} tasks to do.</p>
   </div>
   <div class="search-wrapper">
-    <input type="text" placeholder="search">
+    <img src="assets/icons/search-btn-icon.png">
+    <input type="text" [(ngModel)]="searchText" placeholder="search">
+    <button class="Welcome-cross-btn-wrapper" *ngIf="searchText" (click)="clearSearchBox()">
+      <img src="assets/icons/cross-delete-btn.png"></button>
   </div>
 </div>

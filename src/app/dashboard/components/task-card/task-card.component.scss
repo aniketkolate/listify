@@ -55,6 +55,12 @@
     input {
       width: 24px;
       height: 24px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border-radius: 7px;
+      border: 2px solid #C6CFDC;
+
     }
   }
 
@@ -84,4 +90,51 @@
 
     }
   }
+}
+
+.disabled {
+
+  .task-content-wrapper {
+    h3 {
+      color: #8D9CB8;
+    }
+  }
+
+  .checkbox-wrapper {
+    accent-color: #C6CFDC;
+
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border-radius: 7px;
+      border: 2px solid #C6CFDC;
+
+    }
+  }
+}
+
+.task-content-wrapper {
+  width: 100%;
+
+  .task-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .task-title img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+.task-btn-icon {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
 }

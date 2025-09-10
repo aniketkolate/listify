@@ -1,2 +1,6 @@
 <lst-welcome-search></lst-welcome-search>
-<lst-task-card [task]="task"></lst-task-card>
+<lst-add-task (getTask)="addTast($event)"></lst-add-task>
+
+<div *ngFor="let task of myTaskList ">
+  <lst-task-card [task]="task" (delete)="deleteTask($event)"></lst-task-card>
+</div>

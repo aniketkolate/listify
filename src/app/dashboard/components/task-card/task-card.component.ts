@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgClass, CommonModule } from '@angular/common';
-import { Task } from '../../models/common.model';
+import { Task, } from '../../models/common.model';
+
 
 @Component({
   selector: 'lst-task-card',
@@ -10,11 +11,19 @@ import { Task } from '../../models/common.model';
   styleUrls: ['./task-card.component.scss']
 })
 export class TaskCardComponent {
+  [x: string]: any;
+  @Output() delete = new EventEmitter();
   @Input() disabled = true;
   @Input() task: Task = {
     id: 0,
     title: '',
-    description: ''
+    description: '',
+    status: 'TODO'
   };
+
+  deleteTask(taskId: number) {
+    this.delete.emit(taskId);
+  }
+
 }
 

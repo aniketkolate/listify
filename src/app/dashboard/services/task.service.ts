@@ -29,6 +29,11 @@ export class TaskService {
     this.updateTaskListInLocalStorage();
   }
 
+  editTask(updatedTask: Task): void {
+    const index = this.taskList.findIndex(t => t.id === updatedTask.id);
+    this.updateTaskListInLocalStorage();
+  }
+
   updateTaskListInLocalStorage() {
     localStorage.setItem('taskList', JSON.stringify(this.taskList));
   }

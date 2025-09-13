@@ -14,20 +14,19 @@ import { AddTaskComponent } from "../components/add-task/add-task.component";
 })
 export class DashboardHomeComponent implements OnInit {
   [x: string]: any;
-  constructor(private taskService: TaskService) { }
-
+  myTaskList: Task[] = [];
+  filteredList: Task[] = [];
   taskTitle: string = ''
   taskDesc: string = ''
 
-
+  constructor(private taskService: TaskService) { }
   ngOnInit(): void {
     this.getAllTask();
   }
 
-  myTaskList: Task[] = []
-
   getAllTask() {
     this.myTaskList = this.taskService.getAllTask();
+    this.filteredList = this.myTaskList;
   }
 
   addTast(task: Task) {
@@ -39,6 +38,15 @@ export class DashboardHomeComponent implements OnInit {
   deleteTask(taskId: number) {
     this.taskService.deleteTask(taskId)
     this.getAllTask();
+  }
+
+  onSearch(query: string) {
+    if (query) {
+      this.filteredList = this.myTaskList.filter(task =>
+        task.title.includes(query));
+    } else {
+      this.filteredList = this.myTaskList;
+    }
   }
 
 }

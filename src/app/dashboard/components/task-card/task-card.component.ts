@@ -13,6 +13,7 @@ import { Task, } from '../../models/common.model';
 export class TaskCardComponent {
   [x: string]: any;
   @Output() delete = new EventEmitter();
+  @Output() edit = new EventEmitter();
   @Input() disabled = true;
   @Input() task: Task = {
     id: 0,
@@ -24,6 +25,5 @@ export class TaskCardComponent {
   deleteTask(taskId: number) {
     this.delete.emit(taskId);
   }
-
 }
 

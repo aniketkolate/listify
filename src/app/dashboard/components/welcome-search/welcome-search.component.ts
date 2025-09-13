@@ -1,23 +1,43 @@
-import { Component, Input } from '@angular/core';
-import { UsernameTaskCount } from '../../models/common.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Task, UsernameTaskCount } from '../../models/common.model';
 import { NgIf, CommonModule } from '@angular/common';
-import { FormsModule, } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'lst-welcome-search',
-  imports: [NgIf, CommonModule, FormsModule,],
+  imports: [NgIf, CommonModule, FormsModule, ReactiveFormsModule],
   standalone: true,
   templateUrl: './welcome-search.component.html',
   styleUrl: './welcome-search.component.scss'
 })
-export class WelcomeSearchComponent {
+export class WelcomeSearchComponent implements OnInit {
+  @Output() search = new EventEmitter<string>();
+
+  searchControl = new FormControl('');
   searchText: string = '';
+  myTaskList: Task | undefined;
+
   @Input() usernameAndTaskCount: UsernameTaskCount = {
     username: '',
     taskCount: 0
   }
 
+  ngOnInit(): void {
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(1000)
+      ).subscribe((query) => {
+        this.onSearchChange(query);
+      })
+  }
+
   clearSearchBox() {
     this.searchText = '';
+    this.search.emit('');
+  }
+
+  onSearchChange(query: any) {
+    this.search.emit(query);
   }
 }

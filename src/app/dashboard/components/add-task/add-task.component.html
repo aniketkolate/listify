@@ -1,13 +1,6 @@
 <div class="task-container ">
-  <form [formGroup]="todoForm" (ngSubmit)="onTaskSubmit()">
-    @if(!isAddTaskClicked){
-    <div class="add-task-btn-container">
-      <button (click)="toggleAddTaskClickedFlag()">
-        <img src="assets/icons/plus-icon.png" alt="logo">
-        Add a new task...
-      </button>
-    </div>
-    } @else {
+  <form [formGroup]="todoForm" (ngSubmit)=" editTask ? onTaskEditSubmit() : onTaskSubmit()">
+    @if(isAddTaskClicked || editTask ){
     <div class="task-card-container add-task-input-card">
       <div class="task-content-wrapper">
         <div class="task-title">
@@ -20,6 +13,13 @@
           Save
         </button>
       </div>
+    </div>
+    } @else {
+    <div class="add-task-btn-container">
+      <button (click)="toggleAddTaskClickedFlag()">
+        <img src="assets/icons/plus-icon.png" alt="logo">
+        Add a new task...
+      </button>
     </div>
     }
   </form>

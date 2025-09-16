@@ -5,9 +5,7 @@ import { Task } from '../models/common.model';
   providedIn: 'root'
 })
 export class TaskService {
-
   taskList: Task[] = []
-
   constructor() {
     const storedTasks = localStorage.getItem('taskList');
     if (storedTasks) {
@@ -30,12 +28,13 @@ export class TaskService {
   }
 
   editTask(updatedTask: Task): void {
+    console.log("updatedTask :", updatedTask);
     const index = this.taskList.findIndex(t => t.id === updatedTask.id);
+    this.taskList[index] = updatedTask;
     this.updateTaskListInLocalStorage();
   }
 
   updateTaskListInLocalStorage() {
     localStorage.setItem('taskList', JSON.stringify(this.taskList));
   }
-
 }

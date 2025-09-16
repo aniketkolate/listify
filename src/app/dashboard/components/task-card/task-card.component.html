@@ -1,3 +1,6 @@
+@if(isEditable){
+<lst-add-task [editTask]="task" (editTaskEvent)="editTask($event)"></lst-add-task>
+} @else{
 <div class="task-container " [ngClass]="disabled ? 'disabled': '' ">
   <div class="task-card-container">
     <div class="checkbox-wrapper">
@@ -6,11 +9,17 @@
     <div class="task-content-wrapper">
       <div class="task-title">
         <h3>{{task.title}}</h3>
-        <button class="task-btn-icon" (click)="deleteTask(task.id)" *ngIf="disabled"> <img
-            src="assets/icons/cross-delete-icon.png" alt="">
-        </button>
+        <div class="action-btn-wrapper">
+          <button class=" task-btn-icon"> <img src="assets/icons/right-arrow.png" alt="Open">
+          </button>
+          <button class=" task-btn-icon" (click)="isEditTaskEnable()"> <img src="assets/icons/edit.png" alt="Edit">
+          </button>
+          <button class=" task-btn-icon" (click)="deleteTask(task.id)"> <img src="assets/icons/cross.png" alt="Delete">
+          </button>
+        </div>
       </div>
       <p>{{task.description}}</p>
     </div>
   </div>
 </div>
+}

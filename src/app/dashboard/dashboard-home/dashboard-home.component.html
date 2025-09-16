@@ -1,7 +1,7 @@
 <lst-welcome-search (search)="onSearch($event)"></lst-welcome-search>
 
-<lst-add-task (getTask)="addTast($event)"></lst-add-task>
+<lst-add-task (addTastEvent)="addTast($event)"></lst-add-task>
 
 <div *ngFor="let task of filteredList ">
-  <lst-task-card [task]="task" (delete)="deleteTask($event)" ></lst-task-card>
+  <lst-task-card [task]="task" (delete)="deleteTask($event)" (editTaskEvent)="editTask($event)"></lst-task-card>
 </div>

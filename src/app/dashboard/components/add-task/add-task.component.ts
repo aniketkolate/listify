@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../../models/common.model';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -8,15 +8,27 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
-export class AddTaskComponent {
-
-  @Output() getTask = new EventEmitter
+export class AddTaskComponent implements OnInit {
+  @Output() TaskEditSubmit = new EventEmitter
+  @Output() addTastEvent = new EventEmitter
+  @Output() editTaskEvent = new EventEmitter
+  @Input() editTask!: Task;
   isAddTaskClicked: boolean = false
 
   todoForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   })
+
+  ngOnInit(): void {
+    if (this.editTask) {
+      this.todoForm.patchValue({
+        title: this.editTask.title,
+        description: this.editTask.description
+      })
+    }
+
+  }
 
   onTaskSubmit() {
     if (this.todoForm.valid) {
@@ -26,7 +38,17 @@ export class AddTaskComponent {
         description: this.todoForm.value.description ?? '',
         status: "TODO"
       }
-      this.getTask.emit(task);
+      this.addTastEvent.emit(task);
+      this.todoForm.reset();
+      this.isAddTaskClicked = false;
+    }
+  }
+
+  onTaskEditSubmit() {
+    if (this.todoForm.valid) {
+      this.editTask.title = this.todoForm.value.title!
+      this.editTask.description = this.todoForm.value.description!
+      this.editTaskEvent.emit(this.editTask);
       this.todoForm.reset();
     }
   }
@@ -34,5 +56,4 @@ export class AddTaskComponent {
   toggleAddTaskClickedFlag() {
     this.isAddTaskClicked = !this.isAddTaskClicked;
   }
-
 }

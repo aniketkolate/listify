@@ -56,9 +56,9 @@
     input {
       width: 24px;
       height: 24px;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+      // appearance: none;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
       border-radius: 7px;
       border: 2px solid #C6CFDC;
 
@@ -105,9 +105,9 @@
     accent-color: #C6CFDC;
 
     .custom-checkbox {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+      // appearance: none;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
       border-radius: 7px;
       border: 2px solid #C6CFDC;
     }
@@ -128,6 +128,11 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+  }
+
+  .action-btn-wrapper {
+    display: flex;
+    gap: 16px;
   }
 }
 

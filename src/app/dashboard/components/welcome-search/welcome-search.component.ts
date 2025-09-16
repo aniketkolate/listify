@@ -33,7 +33,7 @@ export class WelcomeSearchComponent implements OnInit {
   }
 
   clearSearchBox() {
-    this.searchText = '';
+    this.searchControl.setValue('');
     this.search.emit('');
   }
 

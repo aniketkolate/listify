@@ -39,6 +39,10 @@ export class DashboardHomeComponent implements OnInit {
     this.taskService.deleteTask(taskId)
     this.getAllTask();
   }
+  editTask(updatedTask: Task) {
+    this.taskService.editTask(updatedTask)
+    this.getAllTask();
+  }
 
   onSearch(query: string) {
     if (query) {
@@ -48,5 +52,4 @@ export class DashboardHomeComponent implements OnInit {
       this.filteredList = this.myTaskList;
     }
   }
-
 }

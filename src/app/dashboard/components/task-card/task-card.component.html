@@ -14,7 +14,7 @@
           <button class=" task-btn-icon"> <img src="assets/icons/right-arrow.png" alt="Open"
               *ngIf="task.status=='TODO'">
           </button>
-          <button class=" task-btn-icon" (click)="isEditTaskEnable()"> <img src="assets/icons/edit.png" alt="Edit"
+          <button class=" task-btn-icon" (click)="isEditTaskEnable()" > <img src="assets/icons/edit.png" alt="Edit"
               *ngIf="task.status=='TODO'">
           </button>
           <button class=" task-btn-icon" (click)="deleteTask(task.id)"> <img

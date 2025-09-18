@@ -4,21 +4,25 @@
 <div class="task-container " [ngClass]="disabled ? 'disabled': '' ">
   <div class="task-card-container">
     <div class="checkbox-wrapper">
-      <input [disabled]="disabled" type="checkbox" class="custom-checkbox">
+      <input [disabled]="disabled" (click)="markTaskCompleted(task.id)" type="checkbox"
+        [checked]="task.status=='COMPLETED'" class="custom-checkbox">
     </div>
     <div class="task-content-wrapper">
       <div class="task-title">
         <h3>{{task.title}}</h3>
         <div class="action-btn-wrapper">
-          <button class=" task-btn-icon"> <img src="assets/icons/right-arrow.png" alt="Open">
+          <button class=" task-btn-icon"> <img src="assets/icons/right-arrow.png" alt="Open"
+              *ngIf="task.status=='TODO'">
           </button>
-          <button class=" task-btn-icon" (click)="isEditTaskEnable()"> <img src="assets/icons/edit.png" alt="Edit">
+          <button class=" task-btn-icon" (click)="isEditTaskEnable()"> <img src="assets/icons/edit.png" alt="Edit"
+              *ngIf="task.status=='TODO'">
           </button>
-          <button class=" task-btn-icon" (click)="deleteTask(task.id)"> <img src="assets/icons/cross.png" alt="Delete">
+          <button class=" task-btn-icon" (click)="deleteTask(task.id)"> <img
+              [src]=" task.status=='TODO' ? 'assets/icons/cross.png':'assets/icons/cross-delete-btn.png'" alt="Delete">
           </button>
         </div>
       </div>
-      <p>{{task.description}}</p>
+      <p *ngIf="showDescription">{{task.description}}</p>
     </div>
   </div>
 </div>

@@ -3,7 +3,6 @@ import { NgClass, CommonModule } from '@angular/common';
 import { Task, } from '../../models/common.model';
 import { AddTaskComponent } from "../add-task/add-task.component";
 
-
 @Component({
   selector: 'lst-task-card',
   standalone: true,
@@ -15,6 +14,8 @@ export class TaskCardComponent {
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() editTaskEvent = new EventEmitter();
+  @Output() markTaskCompleteEvent = new EventEmitter();
+  @Input() showDescription: boolean = true;
   @Input() disabled = false;
   @Input() task: Task = {
     id: 0,
@@ -22,7 +23,6 @@ export class TaskCardComponent {
     description: '',
     status: 'TODO'
   };
-
   isEditable: boolean = false;
   taskService: any;
 
@@ -45,6 +45,10 @@ export class TaskCardComponent {
 
   isEditTaskEnable() {
     this.isEditable = true;
+  }
+
+  markTaskCompleted(taskId: number) {
+    this.markTaskCompleteEvent.emit(taskId);
   }
 }
 

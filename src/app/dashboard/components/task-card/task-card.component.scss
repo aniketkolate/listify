@@ -61,7 +61,6 @@
       // -moz-appearance: none;
       border-radius: 7px;
       border: 2px solid #C6CFDC;
-
     }
   }
 
@@ -88,7 +87,6 @@
       font-weight: 500;
       font-style: Medium;
       font-size: 16px;
-
     }
   }
 }
@@ -144,7 +142,6 @@
   cursor: pointer;
 }
 
-
 .add-task-input-card {
   .task-content-wrapper {
     padding: 15px 20px;
@@ -175,12 +172,10 @@
   }
 
   .add-task-btn-container {
-
     margin-right: 20px;
 
     button {
       font-size: 14px;
-      // border: 1px solid #000;
       border: 2px solid #C6CFDC;
       width: 70px;
       display: flex;

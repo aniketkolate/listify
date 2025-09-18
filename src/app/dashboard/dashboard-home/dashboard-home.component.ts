@@ -1,21 +1,23 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, Input, OnInit, } from '@angular/core';
 import { WelcomeSearchComponent } from "../components/welcome-search/welcome-search.component";
 import { TaskCardComponent } from '../components/task-card/task-card.component';
 import { Task } from '../models/common.model';
 import { TaskService } from '../services/task.service';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { AddTaskComponent } from "../components/add-task/add-task.component";
 
 @Component({
   selector: 'lst-dashboard-home',
-  imports: [WelcomeSearchComponent, TaskCardComponent, NgFor, AddTaskComponent],
+  imports: [WelcomeSearchComponent, TaskCardComponent, NgFor, AddTaskComponent, NgIf, NgClass, CommonModule],
   templateUrl: './dashboard-home.component.html',
   styleUrl: './dashboard-home.component.scss'
 })
 export class DashboardHomeComponent implements OnInit {
+  @Input() disabled = false;
   [x: string]: any;
   myTaskList: Task[] = [];
   filteredList: Task[] = [];
+  completedTaskList: Task[] = [];
   taskTitle: string = ''
   taskDesc: string = ''
 
@@ -26,7 +28,8 @@ export class DashboardHomeComponent implements OnInit {
 
   getAllTask() {
     this.myTaskList = this.taskService.getAllTask();
-    this.filteredList = this.myTaskList;
+    this.filteredList = this.myTaskList.filter((task: Task) => task.status == "TODO");;
+    this.completedTaskList = this.myTaskList.filter((task: Task) => task.status == "COMPLETED");
   }
 
   addTast(task: Task) {
@@ -52,4 +55,15 @@ export class DashboardHomeComponent implements OnInit {
       this.filteredList = this.myTaskList;
     }
   }
+
+  markTaskCompleted(taskId: number) {
+    this.taskService.markTaskCompleted(taskId);
+    this.getAllTask();
+  }
+
+  CompletedTaskDelete() {
+    this.taskService.CompletedTaskDelete();
+    this.getAllTask();
+  }
+
 }

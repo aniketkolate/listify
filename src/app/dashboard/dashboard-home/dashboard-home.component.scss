@@ -19,11 +19,18 @@
   }
 
   .dashboard-delet-wrapper {
-    font-family: Urbanist;
+   button{
+     width: 91px;
+     height: 29px;
+     font-family: Urbanist;
     font-weight: 600;
     font-style: SemiBold;
     font-size: 18px;
     color: #FF5E5E;
-    cursor: pointer;
+    background: #FF8C8C26;
+    border-radius: 8px;
+    border: none;
+    cursor: grab;
+   }
   }
 }

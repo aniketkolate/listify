@@ -37,4 +37,18 @@ export class TaskService {
   updateTaskListInLocalStorage() {
     localStorage.setItem('taskList', JSON.stringify(this.taskList));
   }
+
+  markTaskCompleted(taskId: number) {
+    this.taskList.forEach((task: Task) => {
+      if (task.id == taskId) {
+        task.status = "COMPLETED";
+      }
+    })
+    this.updateTaskListInLocalStorage();
+  }
+
+  CompletedTaskDelete() {
+    this.taskList = this.taskList.filter(task => task.status !== 'COMPLETED');
+    localStorage.setItem('taskList', JSON.stringify(this.taskList));
+  }
 }

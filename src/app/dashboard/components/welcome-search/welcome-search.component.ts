@@ -13,11 +13,11 @@ import { debounceTime } from 'rxjs';
 })
 export class WelcomeSearchComponent implements OnInit {
   @Output() search = new EventEmitter<string>();
-
   searchControl = new FormControl('');
   searchText: string = '';
   myTaskList: Task | undefined;
-
+  @Input() taskList: Task[] = [];
+  @Input() message: string = ''
   @Input() usernameAndTaskCount: UsernameTaskCount = {
     username: '',
     taskCount: 0

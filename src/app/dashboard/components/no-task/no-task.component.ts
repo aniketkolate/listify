@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'lst-no-task',
@@ -8,5 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './no-task.component.scss'
 })
 export class NoTaskComponent {
-  @Input() isTaskCountZero: boolean = true;
+  @Input() isTaskCountZero: boolean = false;
+  @Output() createTaskClicked = new EventEmitter;
+
+  onCreateTask() {
+    this.createTaskClicked.emit()
+  }
+
 }

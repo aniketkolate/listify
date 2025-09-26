@@ -1,0 +1,12 @@
+<div class="welcome-search-container">
+  <div class="Welcome-msg-wrapper">
+    <p>Welcome,<span>{{usernameAndTaskCount.username}}</span></p>
+    <p>{{message}}</p>
+  </div>
+  <div class="search-wrapper">
+    <img src="assets/icons/search-btn-icon.png">
+    <input type="text" placeholder="search" [formControl]="searchControl">
+    <button class="Welcome-cross-btn-wrapper" *ngIf="searchControl.value" (click)="clearSearchBox()">
+      <img src="assets/icons/cross-delete-btn.png"></button>
+  </div>
+</div>

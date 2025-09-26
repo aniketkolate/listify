@@ -1,0 +1,36 @@
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+
+  .dashboard-complet-wrapper {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-family: Urbanist;
+      font-weight: 600;
+      font-style: SemiBold;
+      font-size: 18px;
+      color: #8D9CB8;
+      margin: 10px;
+    }
+  }
+
+  .dashboard-delet-wrapper {
+   button{
+     width: 91px;
+     height: 29px;
+     font-family: Urbanist;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 18px;
+    color: #FF5E5E;
+    background: #FF8C8C26;
+    border-radius: 8px;
+    border: none;
+    cursor: grab;
+   }
+  }
+}

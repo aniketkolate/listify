@@ -18,7 +18,7 @@ export class TaskService {
   }
 
   addTask(task: Task): void {
-    this.taskList.push(task);
+    this.taskList.unshift(task);
     this.updateTaskListInLocalStorage()
   }
 

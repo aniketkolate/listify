@@ -1,11 +1,11 @@
 <div class="task-container ">
   <form [formGroup]="todoForm" (ngSubmit)=" editTask ? onTaskEditSubmit() : onTaskSubmit()">
-    @if(isAddTaskClicked || editTask ){
+    @if(isAddTaskClicked || editTask || isNoTaskAddClicked ){
     <div class="task-card-container add-task-input-card">
       <div class="task-content-wrapper">
         <div class="task-title">
-  
-          <input  autofocus [style.color]="isautofouce? '#8D9CB8': '#3F3D56' "   type="text" placeholder="Title" formControlName="title">
+          <input autofocus [style.color]="isautofouce? '#8D9CB8': '#3F3D56' " type="text" placeholder="Title"
+            formControlName="title">
         </div>
         <input type="text" placeholder="Description" formControlName="description">
       </div>

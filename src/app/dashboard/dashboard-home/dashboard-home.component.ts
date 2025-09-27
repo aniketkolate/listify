@@ -24,6 +24,7 @@ export class DashboardHomeComponent implements OnInit {
   welcomeSearchMessage: string = ''
   searchQuery: string = ''
   showAddTask: boolean = false;
+  @Input() isNoTaskCreateBtnClicked: boolean = false
 
   constructor(private taskService: TaskService) { }
   ngOnInit(): void {
@@ -91,7 +92,6 @@ export class DashboardHomeComponent implements OnInit {
     } else {
       this.myTaskList = [];
     }
-
   }
 
   prepareWelcomeSearchMessage(): string {
@@ -105,7 +105,11 @@ export class DashboardHomeComponent implements OnInit {
     }
   }
 
-  onCreateTask(event: any) {
+  onCreateTask() {
     this.showAddTask = true;
+  }
+
+  onNoTaskCreateBtnClick(isClicked: boolean) {
+    this.isNoTaskCreateBtnClicked = true;
   }
 }

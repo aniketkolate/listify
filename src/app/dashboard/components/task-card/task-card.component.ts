@@ -45,8 +45,8 @@ export class TaskCardComponent {
 
   isEditTaskEnable() {
     this.isEditable = true;
-  }
 
+  }
   markTaskCompleted(taskId: number) {
     this.markTaskCompleteEvent.emit(taskId);
   }

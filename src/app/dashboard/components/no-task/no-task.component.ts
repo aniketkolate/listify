@@ -9,10 +9,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class NoTaskComponent {
   @Input() isTaskCountZero: boolean = false;
-  @Output() createTaskClicked = new EventEmitter;
+  @Output() createTaskClicked = new EventEmitter<void>();
+  @Output() onCreateTaskBtnClickEvent = new EventEmitter;
 
   onCreateTask() {
     this.createTaskClicked.emit()
+    this.onCreateTaskBtnClickEvent.emit(true)
   }
 
 }

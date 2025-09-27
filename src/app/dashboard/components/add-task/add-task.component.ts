@@ -1,4 +1,4 @@
-import {   Component,  EventEmitter, Input, OnInit, Output,  } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 import { Task } from '../../models/common.model';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -8,21 +8,20 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
-export class AddTaskComponent implements OnInit{
+export class AddTaskComponent implements OnInit {
 
   @Output() TaskEditSubmit = new EventEmitter
   @Output() addTastEvent = new EventEmitter
   @Output() editTaskEvent = new EventEmitter
   @Input() editTask!: Task;
+  @Input() isNoTaskClicked = true;
+  @Input() isNoTaskAddClicked: boolean = false;
   isAddTaskClicked: boolean = false
-  isautofouce:boolean=false
-
+  isautofouce: boolean = false
   todoForm = new FormGroup({
     title: new FormControl('', Validators.required,),
     description: new FormControl('', Validators.required),
   })
-
- 
 
   ngOnInit(): void {
     if (this.editTask) {
@@ -31,7 +30,6 @@ export class AddTaskComponent implements OnInit{
         description: this.editTask.description
       })
     }
-
   }
 
   onTaskSubmit() {
@@ -59,5 +57,6 @@ export class AddTaskComponent implements OnInit{
 
   toggleAddTaskClickedFlag() {
     this.isAddTaskClicked = !this.isAddTaskClicked;
+    this.isNoTaskAddClicked = false;
   }
 }

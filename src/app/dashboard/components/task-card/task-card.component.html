@@ -9,12 +9,12 @@
     </div>
     <div class="task-content-wrapper">
       <div class="task-title">
-        <h3>{{task.title}}</h3>
+        <h3 [ngClass]="!isEditable ? 'show-txt-ellipse-title' : ''">{{task.title}}</h3>
         <div class="action-btn-wrapper">
           <button class=" task-btn-icon"> <img src="assets/icons/right-arrow.png" alt="Open"
               *ngIf="task.status=='TODO'">
           </button>
-          <button class=" task-btn-icon" (click)="isEditTaskEnable()" > <img src="assets/icons/edit.png" alt="Edit"
+          <button class=" task-btn-icon" (click)="isEditTaskEnable()"> <img src="assets/icons/edit.png" alt="Edit"
               *ngIf="task.status=='TODO'">
           </button>
           <button class=" task-btn-icon" (click)="deleteTask(task.id)"> <img
@@ -22,7 +22,7 @@
           </button>
         </div>
       </div>
-      <p *ngIf="showDescription">{{task.description}}</p>
+      <p *ngIf="showDescription" [ngClass]="!isEditable ? 'show-txt-ellipse-desc' : ''">{{task.description}}</p>
     </div>
   </div>
 </div>

@@ -1,10 +1,20 @@
 <div class="header-container">
   <div class="logo-wrapper">
-    <img src="assets/images/logo.png">
+    <img src="assets/images/logo.png" alt="App Logo">
     <h1>Listify</h1>
   </div>
-  <div class="profile-wrapper">
-    <h1>John</h1>
-    <img src="assets/images/profile-pic.png" alt="User">
+
+  <div class="profile-wrapper" *ngIf="user; else guest">
+    <h1>{{ user.given_name }}</h1>
+    <img [src]="user.picture" alt="User" />
+
+    <img class="logout" src="assets/icons/logout.png" alt="logout" (click)="logout()">
   </div>
+  <ng-template #guest>
+    <div class="profile-wrapper">
+      <h1>Guest</h1>
+      <img src="assets/images/profile-pic.png" alt="Default User" />
+      <img class="logout" src="assets/icons/logout.png" alt="logout" (click)="logout()">
+    </div>
+  </ng-template>
 </div>

@@ -1,15 +1,16 @@
 import { Component, Input, OnInit, } from '@angular/core';
-import { WelcomeSearchComponent } from "../components/welcome-search/welcome-search.component";
-import { TaskCardComponent } from '../components/task-card/task-card.component';
-import { Task } from '../models/common.model';
-import { TaskService } from '../services/task.service';
+import { WelcomeSearchComponent } from "../../components/welcome-search/welcome-search.component";
+import { TaskCardComponent } from '../../components/task-card/task-card.component';
+import { Task } from '../../models/common.model';
+import { TaskService } from '../../services/task.service';
 import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
-import { AddTaskComponent } from "../components/add-task/add-task.component";
-import { NoTaskComponent } from "../components/no-task/no-task.component";
+import { AddTaskComponent } from "../../components/add-task/add-task.component";
+import { NoTaskComponent } from "../../components/no-task/no-task.component";
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'lst-dashboard-home',
-  imports: [WelcomeSearchComponent, TaskCardComponent, NgFor, AddTaskComponent, NgIf, NgClass, CommonModule, NoTaskComponent],
+  imports: [HeaderComponent, WelcomeSearchComponent, TaskCardComponent, NgFor, AddTaskComponent, NgIf, NgClass, CommonModule, NoTaskComponent],
   templateUrl: './dashboard-home.component.html',
   styleUrl: './dashboard-home.component.scss'
 })

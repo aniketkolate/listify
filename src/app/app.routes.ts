@@ -1,7 +1,17 @@
+// app.routes.ts or app.config.ts
 import { Routes } from '@angular/router';
-import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardHomeComponent },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' }
 ];

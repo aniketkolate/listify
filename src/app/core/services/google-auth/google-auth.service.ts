@@ -11,6 +11,7 @@ export class GoogleAuthService {
   constructor(private ngZone: NgZone) {}
 
   initializeGoogleLogin(clientId: string, callback: (user: any) => void) {
+    console.log('Initializing Google Login with Client ID:', clientId);
     const button = document.getElementById('google-signin-button');
     if (!button) return;
 

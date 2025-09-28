@@ -20,6 +20,8 @@ export class LoginComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
+    console.log('Environment:', environment.production ? 'Production' : 'Development');
+    console.log('Google Client ID:', environment.googleClientId);
     this.googleAuthService.initializeGoogleLogin(
       environment.googleClientId,
       (user) => {
